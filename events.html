@@ -1,0 +1,388 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <script type="module" src="js/ionicons.esm.js"></script>
+<script nomodule="" src="js/ionicons.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        @font-face {
+            font-family: 'mokoto';
+            src: url('fonts/mokoto.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        @font-face {
+            font-family: 'mokotoreg';
+            src: url('fonts/mokotoreg.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        ion-icon{
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        body {
+            background-color: black;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-image: url('Our_Img/04.jpg');
+            font-family: Arial, sans-serif;
+            background-color: #111;
+            font-family: 'Poppins',sans-serif;
+            color: white;
+            margin: 0;
+            text-align: center;
+            padding: 20px;
+            align-items: center;
+            gap: 40px;
+
+           display: flex;
+           flex-direction: column;
+
+        }
+
+     
+
+        .event-card {
+            flex: 0 0 auto;
+            width: 90%; /* Adjusted width to fit content */
+            max-width: 700px; /* Set max-width to maintain rectangular shape */
+            padding: 20px; /* Increased padding for better spacing */
+            border-radius: 12px;
+            background-image: url('images/03%20BG.jpg');
+            border: 2px solid rgb(255, 0, 255);
+
+            display: flex;
+            flex-direction: column; /* Set flex-direction to column */
+            align-items: relative;
+            justify-content: center;
+
+            font-size: 18px;
+            font-weight: bold;
+            scroll-snap-align: start;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .events-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .event-card:hover {
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5), 0 0 25px rgba(255, 255, 255, 0.5), 0 0 35px rgba(255, 255, 255, 0.5);
+        }
+
+        /* From Uiverse.io by 212004ALJI */ 
+        button, button::after {
+        padding: 10px 10px ;
+        font-size: 20px;
+        border: none;
+        border-radius: 11px;
+        color: rgb(255, 255, 255);
+        background-color: transparent;
+        position: relative;
+        float: right; /* Added to align button to the right */
+        }
+
+        button::after {
+        --move1: inset(50% 50% 50% 50%);
+        --move2: inset(31% 0 40% 0);
+        --move3: inset(39% 0 15% 0);
+        --move4: inset(45% 0 40% 0);
+        --move5: inset(45% 0 6% 0);
+        --move6: inset(14% 0 61% 0);
+        clip-path: var(--move1);
+        content: 'GLITCH';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: block;
+        }
+
+        button:hover::after {
+        animation: glitch_4011 1s;
+        text-shadow: 10 10px 10px black;
+        animation-timing-function: steps(2, end);
+        text-shadow: -3px -3px 0px #1df2f0, 3px 3px 0px #fff200;
+        background-color: transparent;
+        border: 3px solid rgb(0, 255, 213);
+        }
+
+        button:hover {
+        text-shadow: -1px -1px 0px #ff0000, 1px 1px 0px #E94BE8;
+        }
+
+        button:hover {
+        background-color: transparent;
+        border: 1px solid rgb(208, 0, 255);
+        box-shadow: 0px 10px 10px -10px rgb(2, 159, 7);
+        }
+
+        @keyframes glitch_4011 {
+        0% {
+            clip-path: var(--move1);
+            transform: translate(0px,-10px);
+        }
+
+        10% {
+            clip-path: var(--move2);
+            transform: translate(-10px,10px);
+        }
+
+        20% {
+            clip-path: var(--move3);
+            transform: translate(10px,0px);
+        }
+
+        30% {
+            clip-path: var(--move4);
+            transform: translate(-10px,10px);
+        }
+
+        40% {
+            clip-path: var(--move5);
+            transform: translate(10px,-10px);
+        }
+
+        50% {
+            clip-path: var(--move6);
+            transform: translate(-10px,10px);
+        }
+
+        60% {
+            clip-path: var(--move1);
+            transform: translate(10px,-10px);
+        }
+
+        70% {
+            clip-path: var(--move3);
+            transform: translate(-10px,10px);
+        }
+
+        80% {
+            clip-path: var(--move2);
+            transform: translate(10px,-10px);
+        }
+
+        90% {
+            clip-path: var(--move4);
+            transform: translate(-10px,10px);
+        }
+
+        100% {
+            clip-path: var(--move1);
+            transform: translate(0);
+        }
+        }
+
+
+        /* Hide scrollbar */
+        .events-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .event-card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .event-card button {
+            padding: 10px;
+            background: white;
+            color: black;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .event:hover {
+            color: rgb(255, 0, 0);
+        }
+
+        body h2 {
+            font-family: 'mokotoreg', sans-serif;
+        }
+        .con{
+            display:flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+            align-items: center;
+
+        }
+        .btn  {
+        display: flex;
+        gap: 40px;
+        margin-top: 20px;
+           
+        }
+        .para{
+            text-align: justify;
+            font-weight: 500;
+        }
+         .num{
+            font-weight:400;
+         } 
+         /* From Uiverse.io by kleenpulse */ 
+        .buton {
+        --border-color: linear-gradient(-45deg, #ffae00, #bc02ff, #00fffb);
+        --border-width: 0.125em;
+        --curve-size: 0.5em;
+        --blur: 100px;
+        --bg: #ffffff;
+        --color: #000000;
+        color: var(--color);
+        cursor: pointer;
+        /* use position: relative; so that BG is only for .btn */
+        position: relative;
+        isolation: isolate;
+        display: inline-grid;
+        place-content: center;
+        padding: 0.1em 2.2em;
+        font-size: 17px;
+        border: 0;
+        text-transform: uppercase;
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.6);
+        clip-path: polygon(
+            /* Top-left */ 0% var(--curve-size),
+            var(--curve-size) 0,
+            /* top-right */ 100% 0,
+            100% calc(100% - var(--curve-size)),
+            /* bottom-right 1 */ calc(100% - var(--curve-size)) 100%,
+            /* bottom-right 2 */ 0 100%
+        );
+        transition: color 250ms;
+        margin: 10px; /* Added margin to create space between buttons */
+        }
+
+        .buton::after,
+        .buton::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        }
+
+        .buton::before {
+        background: var(--border-color);
+        background-size: 300% 300%;
+        animation: move-bg7234 5s ease infinite;
+        z-index: -2;
+        }
+
+        @keyframes move-bg7234 {
+        0% {
+            background-position: 31% 0%;
+        }
+
+        50% {
+            background-position: 70% 100%;
+        }
+
+        100% {
+            background-position: 31% 0%;
+        }
+        }
+
+        .buton::after {
+        background: var(--bg);
+        z-index: -1;
+        clip-path: polygon(
+            /* Top-left */ var(--border-width)
+            calc(var(--curve-size) + var(--border-width) * 0.5),
+            calc(var(--curve-size) + var(--border-width) * 0.5) var(--border-width),
+            /* top-right */ calc(100% - var(--border-width)) var(--border-width),
+            calc(100% - var(--border-width))
+            calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+            /* bottom-right 1 */
+            calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+            calc(100% - var(--border-width)),
+            /* bottom-right 2 */ var(--border-width) calc(100% - var(--border-width))
+        );
+        transition: clip-path 500ms;
+        }
+
+        .buton:where(:hover, :focus)::after {
+        clip-path: polygon(
+            /* Top-left */ calc(100% - var(--border-width))
+            calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+            calc(100% - var(--border-width)) var(--border-width),
+            /* top-right */ calc(100% - var(--border-width)) var(--border-width),
+            calc(100% - var(--border-width))
+            calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+            /* bottom-right 1 */
+            calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+            calc(100% - var(--border-width)),
+            /* bottom-right 2 */
+            calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+            calc(100% - var(--border-width))
+        );
+        transition: 200ms;
+        }
+
+        .buton:where(:hover, :focus) {
+        color: #fff;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+
+    <h2>Our Events</h2>
+    <div> <a href="index.html"><button>HOME</button>
+    </a></div>
+
+    <div class="event-card">
+
+        <img src="images/paper2.jpg" alt="image">
+        <h2>Event 1
+        </h2>
+        <div class="para">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum corrupti praesentium nostrum! Possimus mollitia asperiores, eveniet assumenda dolore adipisci. Enim.</p>
+        </div>
+
+        <a href=""><button class="buton">Rs.  200</button></a>
+         
+        <a href="https://github.com/Abishek2k04/"><button class="buton" >Register</button> </a>
+        <a href="/index.html"><button class="buton">Home</button>
+        </a>
+    </div>
+ 
+    <div class="event-card">
+
+        <img src="images/surp.jpg" alt="image">
+        <h2>SURPRISE EVENT</h2>
+         
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+</body></html>
